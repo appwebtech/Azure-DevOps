@@ -1,5 +1,12 @@
 # Azure DevOps
 
+<p float="left">
+  <img src="https://github.com/appwebtech/EKS-Cluster-With-Terraform/blob/main/images/k8s-logo.png" width="80">
+  <img src="https://github.com/appwebtech/java-maven-build/blob/main/images/Git-Logo.png" width="120">
+</p>
+
+----
+
 ## Introduction
 
 I will create an organization in my Azure portal and create a project **joe-project** to work with. It will have a private visibility with a non TFVC version control, therefore I'll use Git. The work item process provides four options, **Basic, Agile, Scrum and CMMI**, I'll grab the basic one which is lightweight and uses simple models. See full [documentation](https://docs.microsoft.com/en-us/azure/devops/boards/work-items/guidance/choose-process?view=azure-devops&tabs=basic-process).
@@ -1046,3 +1053,4 @@ Logs are available upon clicking the deployment processes.
 
 ![image-27](./images/image-27.png)
 
+To create a deployment from VS Code is straight forward. Authenticate to Azure using VS Code and change the branch. Select the folder from local machine. Create the necessary commit, resolve any merge conflicts amd push to prod.
