@@ -355,3 +355,364 @@ If I wanted to debug incase of errors, just like in **Jenkins**, I can access th
 
 ### Creating A Release Pipeline
 
+Now that I have the **Build Pipeline** out of the way, I'll create  a **Release (production) Pipeline** with Git. Inside my project folder, I have a simple *azure-pipeline.yml* file which ran the first build.
+
+```yaml
+# HTML
+# Archive your static HTML project and save it with the build record.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(build.sourcesDirectory)'
+    includeRootFolder: false
+- task: PublishBuildArtifacts@1
+```
+</details>
+
+I'll create a second pipeline for release pipeline. Whilst configuring Git, I'll navigate to Marketplace and search for **Azure Pipeline** and install it in my GiHub repo. It's a straight forward process with various prompts to which will authorize your GitHub repository with Azure.
+
+After the configuration, I will run the pipeline as I did in the Build Stage. 
+
+The job was run successfully and it also reflected in my repository on GitHub.
+
+![image-13](./images/image-13.png)
+
+![image-14](./images/image-14.png)
+
+#### Raw logs
+
+<details>
+  <summary>Click to expand and view logs</summary>
+  
+  ### Console Output
+```shell
+2021-11-25T14:32:55.3297697Z ##[section]Starting: Job
+2021-11-25T14:32:55.5300751Z ##[section]Starting: Initialize job
+2021-11-25T14:32:55.5301997Z Agent name: 'Hosted Agent'
+2021-11-25T14:32:55.5302435Z Agent machine name: 'fv-az378-853'
+2021-11-25T14:32:55.5302664Z Current agent version: '2.195.0'
+2021-11-25T14:32:55.5339935Z ##[group]Operating System
+2021-11-25T14:32:55.5340156Z Ubuntu
+2021-11-25T14:32:55.5340313Z 20.04.3
+2021-11-25T14:32:55.5340444Z LTS
+2021-11-25T14:32:55.5340601Z ##[endgroup]
+2021-11-25T14:32:55.5340774Z ##[group]Virtual Environment
+2021-11-25T14:32:55.5340973Z Environment: ubuntu-20.04
+2021-11-25T14:32:55.5341172Z Version: 20211122.1
+2021-11-25T14:32:55.5341477Z Included Software: https://github.com/actions/virtual-environments/blob/ubuntu20/20211122.1/images/linux/Ubuntu2004-README.md
+2021-11-25T14:32:55.5341894Z Image Release: https://github.com/actions/virtual-environments/releases/tag/ubuntu20%2F20211122.1
+2021-11-25T14:32:55.5342150Z ##[endgroup]
+2021-11-25T14:32:55.5342334Z ##[group]Virtual Environment Provisioner
+2021-11-25T14:32:55.5342697Z 1.0.0.0-master-20211123-1
+2021-11-25T14:32:55.5342865Z ##[endgroup]
+2021-11-25T14:32:55.5343753Z Current image version: '20211122.1'
+2021-11-25T14:32:55.5345740Z Agent running as: 'vsts'
+2021-11-25T14:32:55.5382640Z Prepare build directory.
+2021-11-25T14:32:55.5623539Z Set build variables.
+2021-11-25T14:32:55.5652764Z Download all required tasks.
+2021-11-25T14:32:55.5753843Z Downloading task: ArchiveFiles (2.189.0)
+2021-11-25T14:32:56.5565489Z Downloading task: PublishBuildArtifacts (1.192.0)
+2021-11-25T14:32:56.8567271Z Checking job knob settings.
+2021-11-25T14:32:56.8575851Z    Knob: AgentToolsDirectory = /opt/hostedtoolcache Source: ${AGENT_TOOLSDIRECTORY} 
+2021-11-25T14:32:56.8577068Z    Knob: AgentPerflog = /home/vsts/perflog Source: ${VSTS_AGENT_PERFLOG} 
+2021-11-25T14:32:56.8578114Z Finished checking job knob settings.
+2021-11-25T14:32:56.9130382Z Plugin: 'Test Result Parser plugin' is running in background.
+2021-11-25T14:32:56.9130733Z Plugin: 'Test File Publisher plugin' is running in background.
+2021-11-25T14:32:56.9131266Z Start tracking orphan processes.
+2021-11-25T14:32:56.9312789Z ##[section]Finishing: Initialize job
+2021-11-25T14:32:56.9606146Z ##[section]Starting: Checkout appwebtech/Azure-DevOps@main to s
+2021-11-25T14:32:56.9828393Z ==============================================================================
+2021-11-25T14:32:56.9829051Z Task         : Get sources
+2021-11-25T14:32:56.9829496Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2021-11-25T14:32:56.9829796Z Version      : 1.0.0
+2021-11-25T14:32:56.9830140Z Author       : Microsoft
+2021-11-25T14:32:56.9830677Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2021-11-25T14:32:56.9831033Z ==============================================================================
+2021-11-25T14:32:58.0337762Z Syncing repository: appwebtech/Azure-DevOps (GitHub)
+2021-11-25T14:32:58.0345216Z ##[command]git version
+2021-11-25T14:32:58.0353039Z git version 2.34.0
+2021-11-25T14:32:58.0354224Z ##[command]git lfs version
+2021-11-25T14:32:58.0361848Z git-lfs/2.13.3 (GitHub; linux amd64; go 1.16.2)
+2021-11-25T14:32:58.0364421Z ##[command]git init "/home/vsts/work/1/s"
+2021-11-25T14:32:58.0370567Z hint: Using 'master' as the name for the initial branch. This default branch name
+2021-11-25T14:32:58.0371025Z hint: is subject to change. To configure the initial branch name to use in all
+2021-11-25T14:32:58.0371471Z hint: of your new repositories, which will suppress this warning, call:
+2021-11-25T14:32:58.0371810Z hint: 
+2021-11-25T14:32:58.0372268Z hint: 	git config --global init.defaultBranch <name>
+2021-11-25T14:32:58.0372566Z hint: 
+2021-11-25T14:32:58.0373051Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2021-11-25T14:32:58.0373663Z hint: 'development'. The just-created branch can be renamed via this command:
+2021-11-25T14:32:58.0374020Z hint: 
+2021-11-25T14:32:58.0374418Z hint: 	git branch -m <name>
+2021-11-25T14:32:58.0375144Z Initialized empty Git repository in /home/vsts/work/1/s/.git/
+2021-11-25T14:32:58.0377754Z ##[command]git remote add origin https://github.com/appwebtech/Azure-DevOps
+2021-11-25T14:32:58.0390548Z ##[command]git config gc.auto 0
+2021-11-25T14:32:58.0399100Z ##[command]git config --get-all http.https://github.com/appwebtech/Azure-DevOps.extraheader
+2021-11-25T14:32:58.0407124Z ##[command]git config --get-all http.proxy
+2021-11-25T14:32:58.0414921Z ##[command]git config http.version HTTP/1.1
+2021-11-25T14:32:58.0427215Z ##[command]git -c http.extraheader="AUTHORIZATION: basic ***" fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin
+2021-11-25T14:32:59.5304675Z remote: Enumerating objects: 30, done.        
+2021-11-25T14:32:59.5344180Z remote: Counting objects:   3% (1/30)        
+2021-11-25T14:32:59.5345567Z remote: Counting objects:   6% (2/30)        
+2021-11-25T14:32:59.5346286Z remote: Counting objects:  10% (3/30)        
+2021-11-25T14:32:59.5348229Z remote: Counting objects:  13% (4/30)        
+2021-11-25T14:32:59.5348713Z remote: Counting objects:  16% (5/30)        
+2021-11-25T14:32:59.5349134Z remote: Counting objects:  20% (6/30)        
+2021-11-25T14:32:59.5349562Z remote: Counting objects:  23% (7/30)        
+2021-11-25T14:32:59.5349980Z remote: Counting objects:  26% (8/30)        
+2021-11-25T14:32:59.5350405Z remote: Counting objects:  30% (9/30)        
+2021-11-25T14:32:59.5350814Z remote: Counting objects:  33% (10/30)        
+2021-11-25T14:32:59.5351235Z remote: Counting objects:  36% (11/30)        
+2021-11-25T14:32:59.5351658Z remote: Counting objects:  40% (12/30)        
+2021-11-25T14:32:59.5352067Z remote: Counting objects:  43% (13/30)        
+2021-11-25T14:32:59.5352489Z remote: Counting objects:  46% (14/30)        
+2021-11-25T14:32:59.5352910Z remote: Counting objects:  50% (15/30)        
+2021-11-25T14:32:59.5353329Z remote: Counting objects:  53% (16/30)        
+2021-11-25T14:32:59.5353735Z remote: Counting objects:  56% (17/30)        
+2021-11-25T14:32:59.5354161Z remote: Counting objects:  60% (18/30)        
+2021-11-25T14:32:59.5354578Z remote: Counting objects:  63% (19/30)        
+2021-11-25T14:32:59.5355203Z remote: Counting objects:  66% (20/30)        
+2021-11-25T14:32:59.5355632Z remote: Counting objects:  70% (21/30)        
+2021-11-25T14:32:59.5356055Z remote: Counting objects:  73% (22/30)        
+2021-11-25T14:32:59.5356525Z remote: Counting objects:  76% (23/30)        
+2021-11-25T14:32:59.5356945Z remote: Counting objects:  80% (24/30)        
+2021-11-25T14:32:59.5357355Z remote: Counting objects:  83% (25/30)        
+2021-11-25T14:32:59.5357778Z remote: Counting objects:  86% (26/30)        
+2021-11-25T14:32:59.5358198Z remote: Counting objects:  90% (27/30)        
+2021-11-25T14:32:59.5358604Z remote: Counting objects:  93% (28/30)        
+2021-11-25T14:32:59.5359029Z remote: Counting objects:  96% (29/30)        
+2021-11-25T14:32:59.5359444Z remote: Counting objects: 100% (30/30)        
+2021-11-25T14:32:59.5359877Z remote: Counting objects: 100% (30/30), done.        
+2021-11-25T14:32:59.5360312Z remote: Compressing objects:   4% (1/24)        
+2021-11-25T14:32:59.5360754Z remote: Compressing objects:   8% (2/24)        
+2021-11-25T14:32:59.5361182Z remote: Compressing objects:  12% (3/24)        
+2021-11-25T14:32:59.5361611Z remote: Compressing objects:  16% (4/24)        
+2021-11-25T14:32:59.5362025Z remote: Compressing objects:  20% (5/24)        
+2021-11-25T14:32:59.5362454Z remote: Compressing objects:  25% (6/24)        
+2021-11-25T14:32:59.5362882Z remote: Compressing objects:  29% (7/24)        
+2021-11-25T14:32:59.5363308Z remote: Compressing objects:  33% (8/24)        
+2021-11-25T14:32:59.5363722Z remote: Compressing objects:  37% (9/24)        
+2021-11-25T14:32:59.5364151Z remote: Compressing objects:  41% (10/24)        
+2021-11-25T14:32:59.5364722Z remote: Compressing objects:  45% (11/24)        
+2021-11-25T14:32:59.5365156Z remote: Compressing objects:  50% (12/24)        
+2021-11-25T14:32:59.5365573Z remote: Compressing objects:  54% (13/24)        
+2021-11-25T14:32:59.5366145Z remote: Compressing objects:  58% (14/24)        
+2021-11-25T14:32:59.5366582Z remote: Compressing objects:  62% (15/24)        
+2021-11-25T14:32:59.5367013Z remote: Compressing objects:  66% (16/24)        
+2021-11-25T14:32:59.5367427Z remote: Compressing objects:  70% (17/24)        
+2021-11-25T14:32:59.5367860Z remote: Compressing objects:  75% (18/24)        
+2021-11-25T14:32:59.5368301Z remote: Compressing objects:  79% (19/24)        
+2021-11-25T14:32:59.5368734Z remote: Compressing objects:  83% (20/24)        
+2021-11-25T14:32:59.5369150Z remote: Compressing objects:  87% (21/24)        
+2021-11-25T14:32:59.5369583Z remote: Compressing objects:  91% (22/24)        
+2021-11-25T14:32:59.5370015Z remote: Compressing objects:  95% (23/24)        
+2021-11-25T14:32:59.5370446Z remote: Compressing objects: 100% (24/24)        
+2021-11-25T14:32:59.5370874Z remote: Compressing objects: 100% (24/24), done.        
+2021-11-25T14:32:59.5372002Z remote: Total 30 (delta 5), reused 26 (delta 4), pack-reused 0        
+2021-11-25T14:32:59.5373638Z From https://github.com/appwebtech/Azure-DevOps
+2021-11-25T14:32:59.5374241Z  * [new branch]      main       -> origin/main
+2021-11-25T14:32:59.5996185Z ##[command]git -c http.extraheader="AUTHORIZATION: basic ***" fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin  +99d3dcac9e7282c22d550927f6cb50a12b2c3287
+2021-11-25T14:32:59.6004501Z From https://github.com/appwebtech/Azure-DevOps
+2021-11-25T14:32:59.6005454Z  * branch            99d3dcac9e7282c22d550927f6cb50a12b2c3287 -> FETCH_HEAD
+2021-11-25T14:32:59.6404545Z ##[command]git checkout --progress --force 99d3dcac9e7282c22d550927f6cb50a12b2c3287
+2021-11-25T14:32:59.6413521Z Note: switching to '99d3dcac9e7282c22d550927f6cb50a12b2c3287'.
+2021-11-25T14:32:59.6414484Z 
+2021-11-25T14:32:59.6415470Z You are in 'detached HEAD' state. You can look around, make experimental
+2021-11-25T14:32:59.6416096Z changes and commit them, and you can discard any commits you make in this
+2021-11-25T14:32:59.6416671Z state without impacting any branches by switching back to a branch.
+2021-11-25T14:32:59.6417004Z 
+2021-11-25T14:32:59.6417789Z If you want to create a new branch to retain commits you create, you may
+2021-11-25T14:32:59.6418615Z do so (now or later) by using -c with the switch command. Example:
+2021-11-25T14:32:59.6419003Z 
+2021-11-25T14:32:59.6419579Z   git switch -c <new-branch-name>
+2021-11-25T14:32:59.6419893Z 
+2021-11-25T14:32:59.6420320Z Or undo this operation with:
+2021-11-25T14:32:59.6420611Z 
+2021-11-25T14:32:59.6421143Z   git switch -
+2021-11-25T14:32:59.6421431Z 
+2021-11-25T14:32:59.6421897Z Turn off this advice by setting config variable advice.detachedHead to false
+2021-11-25T14:32:59.6422237Z 
+2021-11-25T14:32:59.6422771Z HEAD is now at 99d3dca Set up CI with Azure Pipelines
+2021-11-25T14:32:59.6466327Z ##[section]Finishing: Checkout appwebtech/Azure-DevOps@main to s
+2021-11-25T14:32:59.6489668Z ##[section]Starting: ArchiveFiles
+2021-11-25T14:32:59.6496718Z ==============================================================================
+2021-11-25T14:32:59.6497401Z Task         : Archive files
+2021-11-25T14:32:59.6497843Z Description  : Compress files into .7z, .tar.gz, or .zip
+2021-11-25T14:32:59.6498237Z Version      : 2.189.0
+2021-11-25T14:32:59.6498629Z Author       : Microsoft Corporation
+2021-11-25T14:32:59.6499100Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/archive-files
+2021-11-25T14:32:59.6499606Z ==============================================================================
+2021-11-25T14:33:01.5297426Z Found 5 files
+2021-11-25T14:33:01.5299008Z Archiving file: .git
+2021-11-25T14:33:01.5299423Z Archiving file: .gitignore
+2021-11-25T14:33:01.5299814Z Archiving file: README.md
+2021-11-25T14:33:01.5300468Z Archiving file: azure-pipelines.yml
+2021-11-25T14:33:01.5300892Z Archiving file: images
+2021-11-25T14:33:01.5309371Z files=.git
+2021-11-25T14:33:01.5310451Z files=.gitignore
+2021-11-25T14:33:01.5311353Z files=README.md
+2021-11-25T14:33:01.5312896Z files=azure-pipelines.yml
+2021-11-25T14:33:01.5313832Z files=images
+2021-11-25T14:33:01.5319498Z [command]/usr/bin/zip -r /home/vsts/work/1/a/5.zip .git .gitignore README.md azure-pipelines.yml images
+2021-11-25T14:33:01.5320084Z   adding: .git/ (stored 0%)
+2021-11-25T14:33:01.5320484Z   adding: .git/branches/ (stored 0%)
+2021-11-25T14:33:01.5320886Z   adding: .git/HEAD (stored 0%)
+2021-11-25T14:33:01.5321262Z   adding: .git/logs/ (stored 0%)
+2021-11-25T14:33:01.5321662Z   adding: .git/logs/HEAD (deflated 40%)
+2021-11-25T14:33:01.5322066Z   adding: .git/logs/refs/ (stored 0%)
+2021-11-25T14:33:01.5322485Z   adding: .git/logs/refs/remotes/ (stored 0%)
+2021-11-25T14:33:01.5322908Z   adding: .git/logs/refs/remotes/origin/ (stored 0%)
+2021-11-25T14:33:01.5323398Z   adding: .git/logs/refs/remotes/origin/main (deflated 32%)
+2021-11-25T14:33:01.5323832Z   adding: .git/objects/ (stored 0%)
+2021-11-25T14:33:01.5324247Z   adding: .git/objects/78/ (stored 0%)
+2021-11-25T14:33:01.5324721Z   adding: .git/objects/78/e1fcaf053418876b8a921e79a5878c0ac0bc03 (stored 0%)
+2021-11-25T14:33:01.5325170Z   adding: .git/objects/99/ (stored 0%)
+2021-11-25T14:33:01.5325629Z   adding: .git/objects/99/d3dcac9e7282c22d550927f6cb50a12b2c3287 (stored 0%)
+2021-11-25T14:33:01.5326091Z   adding: .git/objects/1d/ (stored 0%)
+2021-11-25T14:33:01.5326550Z   adding: .git/objects/1d/f410b25caedefce7e6965c4e107bf86f142874 (stored 0%)
+2021-11-25T14:33:01.5327064Z   adding: .git/objects/98/ (stored 0%)
+2021-11-25T14:33:01.5327510Z   adding: .git/objects/98/1a36313ad1eda09d574a457490630edeb7227b (deflated 0%)
+2021-11-25T14:33:01.5327977Z   adding: .git/objects/aa/ (stored 0%)
+2021-11-25T14:33:01.5328438Z   adding: .git/objects/aa/ebb8d79da7875493f47814060a3adb3bf529fe (stored 0%)
+2021-11-25T14:33:01.5328902Z   adding: .git/objects/76/ (stored 0%)
+2021-11-25T14:33:01.5329351Z   adding: .git/objects/76/11a879a748ec41ece03f5765b701987832f783 (stored 0%)
+2021-11-25T14:33:01.5329809Z   adding: .git/objects/3e/ (stored 0%)
+2021-11-25T14:33:01.5330290Z   adding: .git/objects/3e/c7ce54e4142b6ae7be83865a52091a5b550fef (stored 0%)
+2021-11-25T14:33:01.5330759Z   adding: .git/objects/87/ (stored 0%)
+2021-11-25T14:33:01.5331217Z   adding: .git/objects/87/1fba92d778e7feac6b10d0d35f640ee4a8b5f6 (deflated 0%)
+2021-11-25T14:33:01.5331664Z   adding: .git/objects/42/ (stored 0%)
+2021-11-25T14:33:01.5332126Z   adding: .git/objects/42/ba67d196013acfcc81e6289678072f43dafb89 (stored 0%)
+2021-11-25T14:33:01.5332587Z   adding: .git/objects/5d/ (stored 0%)
+2021-11-25T14:33:01.5333044Z   adding: .git/objects/5d/38c9cb5f9c0a621c3bdaa3156fd2e56af41124 (deflated 0%)
+2021-11-25T14:33:01.5333505Z   adding: .git/objects/6a/ (stored 0%)
+2021-11-25T14:33:01.5333940Z   adding: .git/objects/6a/7c0ecfdf18660c82963aaacf1d4fd6a97846a3 (stored 0%)
+2021-11-25T14:33:01.5334443Z   adding: .git/objects/a9/ (stored 0%)
+2021-11-25T14:33:01.5335133Z   adding: .git/objects/a9/ac03afd41600da03947ecddcdf28aa38270266 (stored 0%)
+2021-11-25T14:33:01.5335632Z   adding: .git/objects/b7/ (stored 0%)
+2021-11-25T14:33:01.5336101Z   adding: .git/objects/b7/103d38bfc4b9561126f141c2a2ce38f3ebf74b (stored 0%)
+2021-11-25T14:33:01.5336548Z   adding: .git/objects/e6/ (stored 0%)
+2021-11-25T14:33:01.5337001Z   adding: .git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391 (stored 0%)
+2021-11-25T14:33:01.5337534Z   adding: .git/objects/pack/ (stored 0%)
+2021-11-25T14:33:01.5337991Z   adding: .git/objects/3d/ (stored 0%)
+2021-11-25T14:33:01.5338480Z   adding: .git/objects/3d/6c5f4c569709e31687fd913c43fe2fab863663 (stored 0%)
+2021-11-25T14:33:01.5338995Z   adding: .git/objects/b6/ (stored 0%)
+2021-11-25T14:33:01.5339505Z   adding: .git/objects/b6/3b06cec48a39bd548416ffc6a5a7a0eb856bb0 (deflated 0%)
+2021-11-25T14:33:01.5340022Z   adding: .git/objects/af/ (stored 0%)
+2021-11-25T14:33:01.5340526Z   adding: .git/objects/af/4cfad30142523ddb7634d75ce0c3ecc25bf9cf (stored 0%)
+2021-11-25T14:33:01.5341029Z   adding: .git/objects/info/ (stored 0%)
+2021-11-25T14:33:01.5341495Z   adding: .git/objects/d0/ (stored 0%)
+2021-11-25T14:33:01.5342108Z   adding: .git/objects/d0/aa624332e5ef9b26509bb39688187b931a8786 (stored 0%)
+2021-11-25T14:33:01.5342623Z   adding: .git/objects/a0/ (stored 0%)
+2021-11-25T14:33:01.5343126Z   adding: .git/objects/a0/340ecabb9283fbc4fcee4e315e574ad715ca62 (stored 0%)
+2021-11-25T14:33:01.5343622Z   adding: .git/objects/0b/ (stored 0%)
+2021-11-25T14:33:01.5344129Z   adding: .git/objects/0b/14394573a40bafdf03a0c3b94cb477aa24d332 (stored 0%)
+2021-11-25T14:33:01.5344635Z   adding: .git/objects/16/ (stored 0%)
+2021-11-25T14:33:01.5345138Z   adding: .git/objects/16/0093a5b04be9e0255f6c546929789cefdea265 (stored 0%)
+2021-11-25T14:33:01.5345630Z   adding: .git/objects/8e/ (stored 0%)
+2021-11-25T14:33:01.5346133Z   adding: .git/objects/8e/d06127965861beb01beff0c2e009c6a2456957 (deflated 0%)
+2021-11-25T14:33:01.5346650Z   adding: .git/objects/23/ (stored 0%)
+2021-11-25T14:33:01.5388818Z   adding: .git/objects/23/0817a32897f5d5beb9dc155b08d5cd772c811c (stored 0%)
+2021-11-25T14:33:01.5389495Z   adding: .git/objects/3a/ (stored 0%)
+2021-11-25T14:33:01.5390047Z   adding: .git/objects/3a/e332b4ba999bb3f51c97551bcd2dca3bd712c2 (deflated 0%)
+2021-11-25T14:33:01.5390605Z   adding: .git/objects/fe/ (stored 0%)
+2021-11-25T14:33:01.5391145Z   adding: .git/objects/fe/5ac0bf9ab89fecc1775347fcb4c51bed3fdd63 (deflated 0%)
+2021-11-25T14:33:01.5391689Z   adding: .git/objects/58/ (stored 0%)
+2021-11-25T14:33:01.5392221Z   adding: .git/objects/58/01d0eba17c3831d03b8e58c1c2d43957292d3f (deflated 0%)
+2021-11-25T14:33:01.5392794Z   adding: .git/objects/58/cc5457f055420f7a0bf331fa4a115c2117657c (stored 0%)
+2021-11-25T14:33:01.5393331Z   adding: .git/objects/4d/ (stored 0%)
+2021-11-25T14:33:01.5393862Z   adding: .git/objects/4d/74926eacdaeab7d975be0fbbc635bafa33dbf8 (stored 0%)
+2021-11-25T14:33:01.5394402Z   adding: .git/objects/eb/ (stored 0%)
+2021-11-25T14:33:01.5394943Z   adding: .git/objects/eb/78883195228bf1a21b44f84333cd1d1303c6be (stored 0%)
+2021-11-25T14:33:01.5395472Z   adding: .git/objects/ae/ (stored 0%)
+2021-11-25T14:33:01.5396019Z   adding: .git/objects/ae/43ed98a20c7efc0ad259367cc25d34a6381a4d (stored 0%)
+2021-11-25T14:33:01.5396552Z   adding: .git/hooks/ (stored 0%)
+2021-11-25T14:33:01.5397448Z   adding: .git/hooks/post-update.sample (deflated 27%)
+2021-11-25T14:33:01.5398205Z   adding: .git/hooks/prepare-commit-msg.sample (deflated 50%)
+2021-11-25T14:33:01.5398955Z   adding: .git/hooks/pre-rebase.sample (deflated 59%)
+2021-11-25T14:33:01.5399711Z   adding: .git/hooks/applypatch-msg.sample (deflated 42%)
+2021-11-25T14:33:01.5400444Z   adding: .git/hooks/pre-applypatch.sample (deflated 38%)
+2021-11-25T14:33:01.5401185Z   adding: .git/hooks/fsmonitor-watchman.sample (deflated 62%)
+2021-11-25T14:33:01.5401904Z   adding: .git/hooks/commit-msg.sample (deflated 44%)
+2021-11-25T14:33:01.5402624Z   adding: .git/hooks/pre-receive.sample (deflated 40%)
+2021-11-25T14:33:01.5403341Z   adding: .git/hooks/pre-push.sample (deflated 49%)
+2021-11-25T14:33:01.5404257Z   adding: .git/hooks/pre-merge-commit.sample (deflated 39%)
+2021-11-25T14:33:01.5404873Z   adding: .git/hooks/update.sample (deflated 68%)
+2021-11-25T14:33:01.5405562Z   adding: .git/hooks/pre-commit.sample (deflated 45%)
+2021-11-25T14:33:01.5406397Z   adding: .git/hooks/push-to-checkout.sample (deflated 55%)
+2021-11-25T14:33:01.5406942Z   adding: .git/FETCH_HEAD (deflated 27%)
+2021-11-25T14:33:01.5407445Z   adding: .git/description (deflated 14%)
+2021-11-25T14:33:01.5407939Z   adding: .git/info/ (stored 0%)
+2021-11-25T14:33:01.5408412Z   adding: .git/info/exclude (deflated 28%)
+2021-11-25T14:33:01.5408899Z   adding: .git/index (deflated 48%)
+2021-11-25T14:33:01.5409375Z   adding: .git/refs/ (stored 0%)
+2021-11-25T14:33:01.5409857Z   adding: .git/refs/heads/ (stored 0%)
+2021-11-25T14:33:01.5410330Z   adding: .git/refs/remotes/ (stored 0%)
+2021-11-25T14:33:01.5410830Z   adding: .git/refs/remotes/origin/ (stored 0%)
+2021-11-25T14:33:01.5411351Z   adding: .git/refs/remotes/origin/main (stored 0%)
+2021-11-25T14:33:01.5411859Z   adding: .git/refs/tags/ (stored 0%)
+2021-11-25T14:33:01.5412467Z   adding: .git/config (deflated 26%)
+2021-11-25T14:33:01.5412948Z   adding: .gitignore (deflated 20%)
+2021-11-25T14:33:01.5413425Z   adding: README.md (deflated 50%)
+2021-11-25T14:33:01.5414113Z   adding: azure-pipelines.yml (deflated 31%)
+2021-11-25T14:33:01.5414658Z   adding: images/ (stored 0%)
+2021-11-25T14:33:01.5415300Z   adding: images/image-4.png (deflated 7%)
+2021-11-25T14:33:01.5415989Z   adding: images/image-5.png (deflated 7%)
+2021-11-25T14:33:01.5416668Z   adding: images/image-1.png (deflated 7%)
+2021-11-25T14:33:01.5417340Z   adding: images/image-7.png (deflated 11%)
+2021-11-25T14:33:01.5417998Z   adding: images/image-3.png (deflated 5%)
+2021-11-25T14:33:01.5418675Z   adding: images/image-2.png (deflated 10%)
+2021-11-25T14:33:01.5419351Z   adding: images/image-6.png (deflated 8%)
+2021-11-25T14:33:01.5420027Z   adding: images/image-8.png (deflated 8%)
+2021-11-25T14:33:01.5443833Z ##[section]Finishing: ArchiveFiles
+2021-11-25T14:33:01.5464761Z ##[section]Starting: PublishBuildArtifacts
+2021-11-25T14:33:01.5472941Z ==============================================================================
+2021-11-25T14:33:01.5473664Z Task         : Publish build artifacts
+2021-11-25T14:33:01.5474156Z Description  : Publish build artifacts to Azure Pipelines or a Windows file share
+2021-11-25T14:33:01.5474586Z Version      : 1.192.0
+2021-11-25T14:33:01.5475027Z Author       : Microsoft Corporation
+2021-11-25T14:33:01.5475509Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/publish-build-artifacts
+2021-11-25T14:33:01.5476184Z ==============================================================================
+2021-11-25T14:33:02.3781484Z ##[section]Async Command Start: Upload Artifact
+2021-11-25T14:33:02.3782980Z Uploading 1 files
+2021-11-25T14:33:02.3783326Z Building file tree
+2021-11-25T14:33:02.8769783Z Uploaded 0 out of 1,454,987 bytes.
+2021-11-25T14:33:04.3753176Z Uploaded 1,454,987 out of 1,454,987 bytes.
+2021-11-25T14:33:04.3754783Z Associating files
+2021-11-25T14:33:04.3755176Z Total files: 1 ---- Associated files: 0 (0%)
+2021-11-25T14:33:05.0795167Z File upload succeed.
+2021-11-25T14:33:05.0796945Z Upload '/home/vsts/work/1/a' to file container: '#/16579410/drop'
+2021-11-25T14:33:05.0797361Z Associated artifact 4 with build 5
+2021-11-25T14:33:05.0797677Z ##[section]Async Command End: Upload Artifact
+2021-11-25T14:33:05.0799554Z ##[section]Finishing: PublishBuildArtifacts
+2021-11-25T14:33:05.0822626Z ##[section]Starting: Checkout appwebtech/Azure-DevOps@main to s
+2021-11-25T14:33:05.0828130Z ==============================================================================
+2021-11-25T14:33:05.0828669Z Task         : Get sources
+2021-11-25T14:33:05.0829089Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2021-11-25T14:33:05.0829501Z Version      : 1.0.0
+2021-11-25T14:33:05.0829823Z Author       : Microsoft
+2021-11-25T14:33:05.0830245Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2021-11-25T14:33:05.0830726Z ==============================================================================
+2021-11-25T14:33:05.4015524Z Cleaning any cached credential from repository: appwebtech/Azure-DevOps (GitHub)
+2021-11-25T14:33:05.4062294Z ##[section]Finishing: Checkout appwebtech/Azure-DevOps@main to s
+2021-11-25T14:33:05.4198837Z ##[section]Starting: Finalize Job
+2021-11-25T14:33:05.4229790Z TestResultLogParser: JasmineTestResultParser : Starting jasmine test result parser.
+2021-11-25T14:33:05.4230191Z TestResultLogParser: JestTestResultParser : Starting jest test result parser.
+2021-11-25T14:33:05.4230810Z TestResultLogParser: MochaTestResultParser : Starting mocha test result parser.
+2021-11-25T14:33:05.4231200Z TestResultLogParser: PythonTestResultParser : Starting python test result parser.
+2021-11-25T14:33:05.6760041Z TestResultLogParser: Waiting for log plugin to finish, pending process 2 log lines.
+2021-11-25T14:33:05.9024817Z Cleaning up task key
+2021-11-25T14:33:05.9027783Z Start cleaning up orphan processes.
+2021-11-25T14:33:05.9248504Z ##[section]Finishing: Finalize Job
+2021-11-25T14:33:05.9286273Z ##[section]Finishing: Job
+```
+</details>
+
