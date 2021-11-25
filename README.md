@@ -1,7 +1,7 @@
 # Azure DevOps
 
 <p float="left">
-  <img src="https://github.com/appwebtech/Azure-DevOps/blob/main/images/azure-logo.png" width="140">
+  <img src="https://github.com/appwebtech/Azure-DevOps/blob/main/images/azure-logo.png" width="80">
   <img src="https://github.com/appwebtech/java-maven-build/blob/main/images/Git-Logo.png" width="120">
 </p>
 
