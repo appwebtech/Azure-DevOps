@@ -353,6 +353,7 @@ If I wanted to debug incase of errors, just like in **Jenkins**, I can access th
 2021-11-25T13:57:32.9933212Z ##[section]Finishing: Finalize Job
 2021-11-25T13:57:32.9974568Z ##[section]Finishing: Job
 ```
+
 </details>
 
 ### Creating A Release Pipeline
@@ -378,6 +379,7 @@ steps:
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
 ```
+
 </details>
 
 I'll create a second pipeline for release pipeline. Whilst configuring Git, I'll navigate to Marketplace and search for **Azure Pipeline** and install it in my GiHub repo. It's a straight forward process with various prompts to which will authorize your GitHub repository with Azure.
@@ -393,9 +395,10 @@ The job was run successfully and it also reflected in my repository on GitHub.
 #### Raw logs
 
 <details>
+
   <summary>Click to expand and view logs</summary>
   
-  ### Console Output
+### Console Output
 
 ```shell
 2021-11-25T14:32:55.3297697Z ##[section]Starting: Job
