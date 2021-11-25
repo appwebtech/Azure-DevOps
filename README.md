@@ -63,7 +63,7 @@ Azure Pipeline outputs build artifacts with the extensions **.zip, .jay and .exe
 * Stage
 * Prod
 
-### Creating a Simple HTML Pipeline
+### Creating A Build Pipeline
 
 I have created an HTML pipeline and after running it, it failed. This was expected as I haven't created a subscription in Azure. Next, I'll create one and re-run it.
 
@@ -352,4 +352,6 @@ If I wanted to debug incase of errors, just like in **Jenkins**, I can access th
 2021-11-25T13:57:32.9974568Z ##[section]Finishing: Job
 ```
 </details>
+
+### Creating A Release Pipeline
 
