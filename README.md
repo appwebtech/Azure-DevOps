@@ -46,3 +46,20 @@ I have created a new repo for the project and imported it to Azure. I can work w
 ![image-8](./images/image-8.png)
 
 ## Azure Pipelines
+
+Building with Azure DevOps Pipelines CI/CD. In a nutshell, **Continuous Integration** involves merging of code from different branches into one single branch in a smooth flawless way. **Continuous Delivery/Deployment** happens after code is merged to a main branch. Code is build to create artifacts which will be deployed to an artifactory like JFrog or repositories like Nexus, GitHub, AWS CodeCommit, etc. This process is what makes up a pipeline.
+
+Azure Pipeline outputs build artifacts with the extensions **.zip, .jay and .exe** and the pipeline can be broken down into two; **Build and Release**.
+
+### Build Pipeline
+
+* Code
+* Steps
+* Artifact
+  
+### Release Pipeline
+
+* Test
+* Stage
+* Prod
+
