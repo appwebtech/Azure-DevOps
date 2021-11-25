@@ -1006,8 +1006,40 @@ The job was run and completed successfully.
 
 </details>
 
+
 Accessing the webpage
 
 ![image-19](./images/image-19.png)
 
 ![image-20](./images/image-20.png)
+
+## Creating a WebApp Resource on Azure (Manual)
+
+I will be creating an **ASP.NET** which will be running in a windows environment. I'll create a resource and go for the minimal, *Dev / Test workload with an F1 Shared infra*, nothing too fancy or anything that will rack up my bill.
+
+![image-21](./images/image-21.png)
+
+Now that I have the resource ready, I'll create a complete **Build/Release** pipeline.
+
+![image-22](./images/image-22.png)
+
+I will run build the pipeline to create the artifact, as previously done nothing new really. That ran successfully,  next I'll create the release pipeline.
+
+For the release, I'll use a template, the **Azure App Service deployment** to create the Stage. I'll fill out the stage name and the rest of the parameters as prompted then save.
+
+![image-23](./images/image-23.png)
+
+I will manually trigger the deploy to enable the pipeline do it's job.
+
+Deployment succeeded.
+
+![image-24](./images/image-24.png)
+
+![image-25](./images/image-25.png)
+
+Logs are available upon clicking the deployment processes.
+
+![image-26](./images/image-26.png)
+
+![image-27](./images/image-27.png)
+
