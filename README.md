@@ -44,3 +44,5 @@ ID,Work Item Type,Title,Assigned To,State,Tags
 I have created a new repo for the project and imported it to Azure. I can work with my repo in Azure and even create new repos there and push them to GitHub. I have also integrated my Azure repo with my local dev environment in VS Studio Code.
 
 ![image-8](./images/image-8.png)
+
+## Azure Pipelines
