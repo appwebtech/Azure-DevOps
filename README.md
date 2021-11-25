@@ -716,3 +716,39 @@ The job was run successfully and it also reflected in my repository on GitHub.
 ```
 </details>
 
+![image-15](./images/image-15.png)
+
+## Creating a Static Web App Resource
+
+I will create a Static Web App Resource to deploy my Application. My App is a simple HTML web page. My deployment is ready in Azure.
+
+![image-16](./images/image-16.png)
+
+I will require a deployment token, which I've copied from my Static Web App.
+
+![image-17](./images/image-17.png)
+
+I've configured my deployment yaml file and the deployment token has been saved as a variable which I have passed as *deployment_token*.
+
+```yaml
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+  submodules: true
+
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location: '/'
+    api_location: 'api'
+    output_location: ''
+  env:
+    azure_static_web_apps_api_token: $(deployment_token)
+```
+
+The job was run successfully.
+
