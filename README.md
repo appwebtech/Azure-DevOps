@@ -84,10 +84,12 @@ Now that's out of the way, I've re-run the job again in Pipelines and it has com
 If I wanted to debug incase of errors, just like in **Jenkins**, I can access the logs and see what might have gone wrong.
 
 #### Raw logs
+
 <details>
   <summary>Click to expand and view logs</summary>
   
   ### Console Output
+
 ```shell
 2021-11-25T13:57:23.3778254Z ##[section]Starting: Job
 2021-11-25T13:57:23.8221483Z ##[section]Starting: Initialize job
@@ -394,6 +396,7 @@ The job was run successfully and it also reflected in my repository on GitHub.
   <summary>Click to expand and view logs</summary>
   
   ### Console Output
+
 ```shell
 2021-11-25T14:32:55.3297697Z ##[section]Starting: Job
 2021-11-25T14:32:55.5300751Z ##[section]Starting: Initialize job
@@ -750,5 +753,261 @@ steps:
     azure_static_web_apps_api_token: $(deployment_token)
 ```
 
-The job was run successfully.
+The job was run and completed successfully.
 
+![image-18](./images/image-18.png)
+
+#### Raw logs
+
+<details>
+  <summary>Click to expand and view logs</summary>
+  
+  ### Console Output
+  
+```shell
+2021-11-25T15:17:35.4150402Z ##[section]Starting: Job
+2021-11-25T15:17:35.5446539Z ##[section]Starting: Initialize job
+2021-11-25T15:17:35.5447577Z Agent name: 'Hosted Agent'
+2021-11-25T15:17:35.5447892Z Agent machine name: 'fv-az378-853'
+2021-11-25T15:17:35.5448078Z Current agent version: '2.195.0'
+2021-11-25T15:17:35.5494022Z ##[group]Operating System
+2021-11-25T15:17:35.5494195Z Ubuntu
+2021-11-25T15:17:35.5494294Z 20.04.3
+2021-11-25T15:17:35.5494407Z LTS
+2021-11-25T15:17:35.5494509Z ##[endgroup]
+2021-11-25T15:17:35.5494632Z ##[group]Virtual Environment
+2021-11-25T15:17:35.5494794Z Environment: ubuntu-20.04
+2021-11-25T15:17:35.5494927Z Version: 20211122.1
+2021-11-25T15:17:35.5495329Z Included Software: https://github.com/actions/virtual-environments/blob/ubuntu20/20211122.1/images/linux/Ubuntu2004-README.md
+2021-11-25T15:17:35.5495651Z Image Release: https://github.com/actions/virtual-environments/releases/tag/ubuntu20%2F20211122.1
+2021-11-25T15:17:35.5495867Z ##[endgroup]
+2021-11-25T15:17:35.5496005Z ##[group]Virtual Environment Provisioner
+2021-11-25T15:17:35.5496281Z 1.0.0.0-master-20211123-1
+2021-11-25T15:17:35.5496416Z ##[endgroup]
+2021-11-25T15:17:35.5497173Z Current image version: '20211122.1'
+2021-11-25T15:17:35.5499004Z Agent running as: 'vsts'
+2021-11-25T15:17:35.5533598Z Prepare build directory.
+2021-11-25T15:17:35.5746663Z Set build variables.
+2021-11-25T15:17:35.5770682Z Download all required tasks.
+2021-11-25T15:17:35.5856608Z Downloading task: AzureStaticWebApp (0.187.2)
+2021-11-25T15:17:35.9705671Z Checking job knob settings.
+2021-11-25T15:17:35.9713531Z    Knob: AgentToolsDirectory = /opt/hostedtoolcache Source: ${AGENT_TOOLSDIRECTORY} 
+2021-11-25T15:17:35.9714521Z    Knob: AgentPerflog = /home/vsts/perflog Source: ${VSTS_AGENT_PERFLOG} 
+2021-11-25T15:17:35.9715451Z Finished checking job knob settings.
+2021-11-25T15:17:35.9959923Z Start tracking orphan processes.
+2021-11-25T15:17:36.0130500Z ##[section]Finishing: Initialize job
+2021-11-25T15:17:36.0375102Z ##[section]Starting: Checkout Azure-DevOps.git@main to s
+2021-11-25T15:17:36.0596651Z ==============================================================================
+2021-11-25T15:17:36.0597213Z Task         : Get sources
+2021-11-25T15:17:36.0597936Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2021-11-25T15:17:36.0598182Z Version      : 1.0.0
+2021-11-25T15:17:36.0598525Z Author       : Microsoft
+2021-11-25T15:17:36.0599042Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2021-11-25T15:17:36.0599341Z ==============================================================================
+2021-11-25T15:17:36.7320665Z Syncing repository: Azure-DevOps.git (Git)
+2021-11-25T15:17:36.7327944Z ##[command]git version
+2021-11-25T15:17:36.7333662Z git version 2.34.0
+2021-11-25T15:17:36.7334441Z ##[command]git lfs version
+2021-11-25T15:17:36.7339736Z git-lfs/2.13.3 (GitHub; linux amd64; go 1.16.2)
+2021-11-25T15:17:36.7341568Z ##[command]git init "/home/vsts/work/1/s"
+2021-11-25T15:17:36.7345890Z hint: Using 'master' as the name for the initial branch. This default branch name
+2021-11-25T15:17:36.7346217Z hint: is subject to change. To configure the initial branch name to use in all
+2021-11-25T15:17:36.7346534Z hint: of your new repositories, which will suppress this warning, call:
+2021-11-25T15:17:36.7346767Z hint: 
+2021-11-25T15:17:36.7347097Z hint: 	git config --global init.defaultBranch <name>
+2021-11-25T15:17:36.7347301Z hint: 
+2021-11-25T15:17:36.7347643Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2021-11-25T15:17:36.7348096Z hint: 'development'. The just-created branch can be renamed via this command:
+2021-11-25T15:17:36.7348339Z hint: 
+2021-11-25T15:17:36.7348624Z hint: 	git branch -m <name>
+2021-11-25T15:17:36.7349378Z Initialized empty Git repository in /home/vsts/work/1/s/.git/
+2021-11-25T15:17:36.7351402Z ##[command]git remote add origin https://josembi@dev.azure.com/josembi/joe-project/_git/Azure-DevOps.git
+2021-11-25T15:17:36.7361243Z ##[command]git config gc.auto 0
+2021-11-25T15:17:36.7368497Z ##[command]git config --get-all http.https://josembi@dev.azure.com/josembi/joe-project/_git/Azure-DevOps.git.extraheader
+2021-11-25T15:17:36.7374734Z ##[command]git config --get-all http.proxy
+2021-11-25T15:17:36.7380672Z ##[command]git config http.version HTTP/1.1
+2021-11-25T15:17:36.7389986Z ##[command]git -c http.extraheader="AUTHORIZATION: bearer ***" fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin
+2021-11-25T15:17:37.1212914Z remote: Azure Repos        
+2021-11-25T15:17:37.1238756Z remote: 
+2021-11-25T15:17:37.1239155Z remote: Found 63 objects to send. (45 ms)        
+2021-11-25T15:17:37.1240503Z From https://dev.azure.com/josembi/joe-project/_git/Azure-DevOps
+2021-11-25T15:17:37.1241115Z  * [new branch]      main       -> origin/main
+2021-11-25T15:17:37.7275836Z ##[command]git -c http.extraheader="AUTHORIZATION: bearer ***" fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin  +1d6f77c52e2f1f3b3a6ee8c92447a7976bce9a8c
+2021-11-25T15:17:37.7287759Z From https://dev.azure.com/josembi/joe-project/_git/Azure-DevOps
+2021-11-25T15:17:37.7288926Z  * branch            1d6f77c52e2f1f3b3a6ee8c92447a7976bce9a8c -> FETCH_HEAD
+2021-11-25T15:17:38.7674257Z ##[command]git checkout --progress --force 1d6f77c52e2f1f3b3a6ee8c92447a7976bce9a8c
+2021-11-25T15:17:38.7686098Z Note: switching to '1d6f77c52e2f1f3b3a6ee8c92447a7976bce9a8c'.
+2021-11-25T15:17:38.7686366Z 
+2021-11-25T15:17:38.7686808Z You are in 'detached HEAD' state. You can look around, make experimental
+2021-11-25T15:17:38.7687140Z changes and commit them, and you can discard any commits you make in this
+2021-11-25T15:17:38.7687435Z state without impacting any branches by switching back to a branch.
+2021-11-25T15:17:38.7687575Z 
+2021-11-25T15:17:38.7687930Z If you want to create a new branch to retain commits you create, you may
+2021-11-25T15:17:38.7688736Z do so (now or later) by using -c with the switch command. Example:
+2021-11-25T15:17:38.7689048Z 
+2021-11-25T15:17:38.7689426Z   git switch -c <new-branch-name>
+2021-11-25T15:17:38.7689555Z 
+2021-11-25T15:17:38.7690142Z Or undo this operation with:
+2021-11-25T15:17:38.7690366Z 
+2021-11-25T15:17:38.7699783Z   git switch -
+2021-11-25T15:17:38.7700041Z 
+2021-11-25T15:17:38.7700356Z Turn off this advice by setting config variable advice.detachedHead to false
+2021-11-25T15:17:38.7700518Z 
+2021-11-25T15:17:38.7701114Z HEAD is now at 1d6f77c Merge branch 'main' of https://dev.azure.com/josembi/joe-project/_git/Azure-DevOps
+2021-11-25T15:17:38.7703272Z ##[command]git submodule sync
+2021-11-25T15:17:38.7715404Z ##[command]git -c http.https://josembi@dev.azure.com.extraheader="AUTHORIZATION: bearer ***" submodule update --init --force
+2021-11-25T15:17:38.7795231Z ##[section]Finishing: Checkout Azure-DevOps.git@main to s
+2021-11-25T15:17:38.7814101Z ##[section]Starting: AzureStaticWebApp
+2021-11-25T15:17:38.7819314Z ==============================================================================
+2021-11-25T15:17:38.7819592Z Task         : Deploy Azure Static Web App
+2021-11-25T15:17:38.7819834Z Description  : [PREVIEW] Build and deploy an Azure Static Web App
+2021-11-25T15:17:38.7820025Z Version      : 0.187.2
+2021-11-25T15:17:38.7820184Z Author       : Microsoft Corporation
+2021-11-25T15:17:38.7820374Z Help         : https://aka.ms/swadocs
+2021-11-25T15:17:38.7820584Z ==============================================================================
+2021-11-25T15:17:38.7875183Z ##[warning]This task uses Node 6 execution handler, which will be deprecated soon. If you are the developer of the task - please consider the migration guideline to Node 10 handler - https://aka.ms/migrateTaskNode10. If you are the user - feel free to reach out to the owners of this task to proceed on migration.
+2021-11-25T15:17:39.7444045Z [command]/usr/bin/bash /home/vsts/work/_tasks/AzureStaticWebApp_18aad896-e191-4720-88d6-8ced4806941a/0.187.2/launch-docker.sh
+2021-11-25T15:17:39.7444766Z Unable to find image 'mcr.microsoft.com/appsvc/staticappsclient:stable' locally
+2021-11-25T15:17:39.7445308Z stable: Pulling from appsvc/staticappsclient
+2021-11-25T15:17:39.7445567Z 1c05d83e138c: Pulling fs layer
+2021-11-25T15:17:39.7445793Z 394ee1959bac: Pulling fs layer
+2021-11-25T15:17:39.7446018Z 4b5f175d1abb: Pulling fs layer
+2021-11-25T15:17:39.7446257Z 7885553ee256: Pulling fs layer
+2021-11-25T15:17:39.7446480Z 444120dfcd5e: Pulling fs layer
+2021-11-25T15:17:39.7446721Z 2b1c0589c3ea: Pulling fs layer
+2021-11-25T15:17:39.7446947Z 0b9e3a08754a: Pulling fs layer
+2021-11-25T15:17:39.7447185Z 1baf06fdfae0: Pulling fs layer
+2021-11-25T15:17:39.7447411Z 387ff523cf98: Pulling fs layer
+2021-11-25T15:17:39.7447636Z 11832b5b29dc: Pulling fs layer
+2021-11-25T15:17:39.7447874Z 4cfa31dbd6a3: Pulling fs layer
+2021-11-25T15:17:39.7448098Z bcefc228c818: Pulling fs layer
+2021-11-25T15:17:39.7448462Z 37dfc825a5aa: Pulling fs layer
+2021-11-25T15:17:39.7448681Z 80c61663b646: Pulling fs layer
+2021-11-25T15:17:39.7448902Z e5f8c3ac6cda: Pulling fs layer
+2021-11-25T15:17:39.7449133Z e5b283d21257: Pulling fs layer
+2021-11-25T15:17:39.7449350Z 444120dfcd5e: Waiting
+2021-11-25T15:17:39.7449566Z 2b1c0589c3ea: Waiting
+2021-11-25T15:17:39.7449773Z 0b9e3a08754a: Waiting
+2021-11-25T15:17:39.7449994Z 1baf06fdfae0: Waiting
+2021-11-25T15:17:39.7450196Z 387ff523cf98: Waiting
+2021-11-25T15:17:39.7450395Z 11832b5b29dc: Waiting
+2021-11-25T15:17:39.7450608Z 4cfa31dbd6a3: Waiting
+2021-11-25T15:17:39.7450809Z bcefc228c818: Waiting
+2021-11-25T15:17:39.7451183Z 37dfc825a5aa: Waiting
+2021-11-25T15:17:39.7451392Z 80c61663b646: Waiting
+2021-11-25T15:17:39.7451599Z e5f8c3ac6cda: Waiting
+2021-11-25T15:17:39.7451818Z e5b283d21257: Waiting
+2021-11-25T15:17:39.7452023Z 7885553ee256: Waiting
+2021-11-25T15:17:39.7452256Z 4b5f175d1abb: Verifying Checksum
+2021-11-25T15:17:39.7452481Z 4b5f175d1abb: Download complete
+2021-11-25T15:17:39.7452727Z 394ee1959bac: Verifying Checksum
+2021-11-25T15:17:39.7452958Z 394ee1959bac: Download complete
+2021-11-25T15:17:40.2446800Z 1c05d83e138c: Verifying Checksum
+2021-11-25T15:17:40.2450226Z 1c05d83e138c: Download complete
+2021-11-25T15:17:40.2947025Z 7885553ee256: Verifying Checksum
+2021-11-25T15:17:40.2947575Z 7885553ee256: Download complete
+2021-11-25T15:17:40.4438888Z 0b9e3a08754a: Verifying Checksum
+2021-11-25T15:17:40.4440338Z 0b9e3a08754a: Download complete
+2021-11-25T15:17:40.5779310Z 2b1c0589c3ea: Verifying Checksum
+2021-11-25T15:17:40.5810498Z 2b1c0589c3ea: Download complete
+2021-11-25T15:17:40.6754665Z 387ff523cf98: Verifying Checksum
+2021-11-25T15:17:40.6756051Z 387ff523cf98: Download complete
+2021-11-25T15:17:40.7841537Z 11832b5b29dc: Verifying Checksum
+2021-11-25T15:17:40.7843029Z 11832b5b29dc: Download complete
+2021-11-25T15:17:40.9229635Z 4cfa31dbd6a3: Verifying Checksum
+2021-11-25T15:17:40.9237908Z 4cfa31dbd6a3: Download complete
+2021-11-25T15:17:41.0156307Z bcefc228c818: Verifying Checksum
+2021-11-25T15:17:41.0176225Z bcefc228c818: Download complete
+2021-11-25T15:17:41.3361737Z 1baf06fdfae0: Verifying Checksum
+2021-11-25T15:17:41.3363758Z 1baf06fdfae0: Download complete
+2021-11-25T15:17:42.1107000Z 444120dfcd5e: Verifying Checksum
+2021-11-25T15:17:42.1114364Z 444120dfcd5e: Download complete
+2021-11-25T15:17:42.2171088Z 80c61663b646: Verifying Checksum
+2021-11-25T15:17:42.2171812Z 80c61663b646: Download complete
+2021-11-25T15:17:42.2223416Z e5f8c3ac6cda: Verifying Checksum
+2021-11-25T15:17:42.2224134Z e5f8c3ac6cda: Download complete
+2021-11-25T15:17:42.6892302Z e5b283d21257: Verifying Checksum
+2021-11-25T15:17:42.6892844Z e5b283d21257: Download complete
+2021-11-25T15:17:43.2406077Z 1c05d83e138c: Pull complete
+2021-11-25T15:17:44.8295294Z 37dfc825a5aa: Verifying Checksum
+2021-11-25T15:17:44.8296103Z 37dfc825a5aa: Download complete
+2021-11-25T15:17:46.8868059Z 394ee1959bac: Pull complete
+2021-11-25T15:17:47.0379590Z 4b5f175d1abb: Pull complete
+2021-11-25T15:17:49.4978018Z 7885553ee256: Pull complete
+2021-11-25T15:17:58.2789700Z 444120dfcd5e: Pull complete
+2021-11-25T15:17:59.0443108Z 2b1c0589c3ea: Pull complete
+2021-11-25T15:17:59.1287966Z 0b9e3a08754a: Pull complete
+2021-11-25T15:18:00.8288199Z 1baf06fdfae0: Pull complete
+2021-11-25T15:18:00.9025932Z 387ff523cf98: Pull complete
+2021-11-25T15:18:00.9892699Z 11832b5b29dc: Pull complete
+2021-11-25T15:18:01.0731672Z 4cfa31dbd6a3: Pull complete
+2021-11-25T15:18:01.1629969Z bcefc228c818: Pull complete
+2021-11-25T15:18:11.3980138Z 37dfc825a5aa: Pull complete
+2021-11-25T15:18:16.1874923Z 80c61663b646: Pull complete
+2021-11-25T15:18:16.2471522Z e5f8c3ac6cda: Pull complete
+2021-11-25T15:18:17.3886772Z e5b283d21257: Pull complete
+2021-11-25T15:18:17.3950680Z Digest: sha256:51bcbd21097ccba9776dadbc7ee1aff5c73495367ad38f08f3b37512b39f5c03
+2021-11-25T15:18:17.3968627Z Status: Downloaded newer image for mcr.microsoft.com/appsvc/staticappsclient:stable
+2021-11-25T15:18:17.8760144Z [37mDeploymentId: f466f7d9-d22f-4bac-91da-1437cb9804fe[0m
+2021-11-25T15:18:17.8760820Z [37m[0m
+2021-11-25T15:18:17.9792605Z [37mApp Directory Location: '/' was found.[0m
+2021-11-25T15:18:17.9803110Z [33m[WARNING] Api Directory Location: 'api' could not be found. Azure Functions will not be created.[0m
+2021-11-25T15:18:17.9803743Z [37mLooking for event info[0m
+2021-11-25T15:18:18.4674460Z [37mStarting to build app with Oryx[0m
+2021-11-25T15:18:18.4675407Z [33mAzure Static Web Apps utilizes Oryx to build both static applications and Azure Functions. You can find more details on Oryx here: https://github.com/microsoft/Oryx[0m
+2021-11-25T15:18:18.4676156Z [37m---Oryx build logs---[0m
+2021-11-25T15:18:18.4676528Z [37m[0m
+2021-11-25T15:18:18.4676883Z [37m[0m
+2021-11-25T15:18:19.2336719Z [37mOperation performed by Microsoft Oryx, https://github.com/Microsoft/Oryx[0m
+2021-11-25T15:18:19.2337448Z [37mYou can report issues at https://github.com/Microsoft/Oryx/issues[0m
+2021-11-25T15:18:19.2337955Z [37m[0m
+2021-11-25T15:18:19.2338654Z [37mOryx Version: 0.2.20211001.1, Commit: f0cbc9b1f0d056493cdb36f92b62f11921c87261, ReleaseTagName: 20211001.1[0m
+2021-11-25T15:18:19.2339232Z [37m[0m
+2021-11-25T15:18:19.2339689Z [37mBuild Operation ID: |gZAREDYCZ/Y=.31cb309_[0m
+2021-11-25T15:18:19.2340290Z [37mRepository Commit : 1d6f77c52e2f1f3b3a6ee8c92447a7976bce9a8c[0m
+2021-11-25T15:18:19.2340737Z [37m[0m
+2021-11-25T15:18:19.2341122Z [37mDetecting platforms...[0m
+2021-11-25T15:18:19.2341632Z [37mCould not detect any platform in the source directory.[0m
+2021-11-25T15:18:19.2342167Z [31mError: Could not detect the language from repo.[0m
+2021-11-25T15:18:20.6156446Z [37m[0m
+2021-11-25T15:18:20.6158075Z [37m[0m
+2021-11-25T15:18:20.6158492Z [37m---End of Oryx build logs---[0m
+2021-11-25T15:18:20.6159193Z [33mOryx was unable to determine the build steps. Continuing assuming the assets in this folder are already built. If this is an unexpected behavior please contact support.[0m
+2021-11-25T15:18:20.6315891Z [37mFinished building app with Oryx[0m
+2021-11-25T15:18:20.6556756Z [33mEither no Api directory was specified, or the specified directory was not found. Azure Functions will not be created.[0m
+2021-11-25T15:18:20.8858212Z [37mZipping App Artifacts[0m
+2021-11-25T15:18:20.9432617Z [37mDone Zipping App Artifacts[0m
+2021-11-25T15:18:20.9433257Z [37mUploading build artifacts.[0m
+2021-11-25T15:18:21.2821779Z [32mFinished Upload. Polling on deployment.[0m
+2021-11-25T15:18:21.3967803Z [37mStatus: InProgress. Time: 0.1146519(s)[0m
+2021-11-25T15:18:36.5041856Z [37mStatus: Succeeded. Time: 15.2215718(s)[0m
+2021-11-25T15:18:36.5042303Z [32mDeployment Complete :)[0m
+2021-11-25T15:18:36.5042813Z [32mVisit your site at: https://agreeable-water-00d01b803.azurestaticapps.net[0m
+2021-11-25T15:18:36.5267195Z [37mThanks for using Azure Static Web Apps![0m
+2021-11-25T15:18:36.5267976Z [37mExiting[0m
+2021-11-25T15:18:36.6540569Z 
+2021-11-25T15:18:36.6608329Z ##[section]Finishing: AzureStaticWebApp
+2021-11-25T15:18:36.6626263Z ##[section]Starting: Checkout Azure-DevOps.git@main to s
+2021-11-25T15:18:36.6633541Z ==============================================================================
+2021-11-25T15:18:36.6633787Z Task         : Get sources
+2021-11-25T15:18:36.6634019Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2021-11-25T15:18:36.6634403Z Version      : 1.0.0
+2021-11-25T15:18:36.6634567Z Author       : Microsoft
+2021-11-25T15:18:36.6634804Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2021-11-25T15:18:36.6635073Z ==============================================================================
+2021-11-25T15:18:36.9575942Z Cleaning any cached credential from repository: Azure-DevOps.git (Git)
+2021-11-25T15:18:36.9632644Z ##[section]Finishing: Checkout Azure-DevOps.git@main to s
+2021-11-25T15:18:36.9681226Z ##[section]Starting: Finalize Job
+2021-11-25T15:18:36.9709027Z Cleaning up task key
+2021-11-25T15:18:36.9710382Z Start cleaning up orphan processes.
+2021-11-25T15:18:37.0012437Z ##[section]Finishing: Finalize Job
+2021-11-25T15:18:37.0047592Z ##[section]Finishing: Job
+```
+
+</details>
+
+Accessing the webpage
+
+![image-19](./images/image-19.png)
+
+![image-20](./images/image-20.png)
