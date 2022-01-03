@@ -2,7 +2,7 @@
 
 <p float="left">
   <img src="https://github.com/appwebtech/Azure-DevOps/blob/main/images/azure-logo.png" width="80">
-  <img src="https://github.com/appwebtech/java-maven-build/blob/main/images/Git-Logo.png" width="120">
+  <img src="https://github.com/appwebtech/Ansible-Integration-Jenkins/blob/main/images/git-Logo.png" width="120">
 </p>
 
 ----
